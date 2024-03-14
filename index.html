@@ -15,7 +15,7 @@
 <body>
 
 <!--Main Navbar-->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3">
+    <nav class="navbar navbar-expand bg-light navbar-light py-3">
         <div class="container">
             <a href="#" class="navbar-brand"><img src="assets/bells-logo.jpg" alt="logo"></a>
             <button class="navbar-toggler"
@@ -48,32 +48,62 @@
     </nav>
 
     <!--Secondary Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="nav_2">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary sticky-top">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll"  style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a href="#news" class="nav-link active" aria-current="page">News & Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#education" class="nav-link active">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#apply" class="nav-link active">Apply</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#library" class="nav-link active">Library</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link active">About Us</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll">
+                    <li class="nav-item dropdown" id="navbar-dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li class="nav-item">
+                                <a href="#news" class="nav-link active" aria-current="page">News & Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#education" class="nav-link active">Education</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#apply" class="nav-link active">Apply</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#library" class="nav-link active">Library</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#about" class="nav-link active">About Us</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <script>
+        // Activate dropdown on hover
+        document.getElementById("navbar-dropdown-hover").addEventListener("mouseenter", function(event) {
+            var dropdownToggle = event.currentTarget.querySelector(".dropdown-toggle");
+            if (!dropdownToggle.classList.contains("show")) {
+                dropdownToggle.classList.add("show");
+                dropdownToggle.setAttribute("aria-expanded", "true");
+                var dropdownMenu = dropdownToggle.nextElementSibling;
+                dropdownMenu.classList.add("show");
+            }
+        });
+
+        document.getElementById("navbar-dropdown-hover").addEventListener("mouseleave", function(event) {
+            var dropdownToggle = event.currentTarget.querySelector(".dropdown-toggle");
+            if (dropdownToggle.classList.contains("show")) {
+                dropdownToggle.classList.remove("show");
+                dropdownToggle.setAttribute("aria-expanded", "false");
+                var dropdownMenu = dropdownToggle.nextElementSibling;
+                dropdownMenu.classList.remove("show");
+            }
+        });
+    </script>
 
     <!---->
 
@@ -116,6 +146,14 @@
         </button>
     </div>
 
+
+
+
+
+
+
+
+
     <footer class="p-3 bg-black text-white text-center position-relative">
         <div class="container">
             <p class="lead"> &copy; 2024 Favour, Arinze Adimora</p>
@@ -126,6 +164,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.js"></script>
+
 
 </body>
 </html>
